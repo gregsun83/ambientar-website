@@ -2,9 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   AMBIENTAR — Global CSS
+   Brand: charcoal #282A28 · sage #90B488 · olive #698453
+          warmGray #BCB5AC · lightGray #D9D9D9
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Balgin font — WORDMARK USE ONLY ─────────────────────────────────────────
+   TODO: Balgin font file not present in project.
+   To activate the real Balgin typeface:
+   1. Obtain a licensed Balgin font file (e.g. Balgin-Regular.woff2).
+   2. Place it in: public/fonts/balgin/Balgin.woff2
+   3. Uncomment the `src: url(...)` line below and remove the local() line.
+   Until then, Comfortaa (loaded via next/font/google) is the active fallback.
+   ─────────────────────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: "Balgin";
+  /* src: url('/fonts/balgin/Balgin.woff2') format('woff2'); */
+  src: local("Balgin");        /* graceful fail → CSS fallback chain */
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* ── CSS custom properties ── */
 :root {
-  --font-cormorant: "Cormorant Garamond", Georgia, serif;
-  --font-inter: "Inter", system-ui, sans-serif;
+  --font-cormorant:  "Cormorant Garamond", Georgia, serif;
+  --font-inter:      "Inter", system-ui, sans-serif;
+  /* --font-comfortaa set by next/font/google at runtime */
+
+  /* Brand colour tokens */
+  --color-charcoal:   #282A28;
+  --color-sage:       #90B488;
+  --color-olive:      #698453;
+  --color-warm-gray:  #BCB5AC;
+  --color-light-gray: #D9D9D9;
+  --color-offwhite:   #F5F3EE;
+  --color-parchment:  #EDE9E2;
 }
 
 /* ── Smooth scroll — disabled for prefers-reduced-motion ── */
@@ -16,44 +49,37 @@
 
 /* ── Focus ring — accessible and tasteful ── */
 :focus-visible {
-  outline: 2px solid #7a8c6e;
+  outline:       2px solid #90B488;
   outline-offset: 3px;
-  border-radius: 2px;
+  border-radius:  2px;
 }
 
 /* ── Selection colour ── */
 ::selection {
-  background-color: #7a8c6e33;
-  color: #2c2c2c;
+  background-color: #90B48833;
+  color: #282A28;
 }
 
 /* ── Minimal webkit scrollbar ── */
-::-webkit-scrollbar {
-  width: 5px;
-}
-::-webkit-scrollbar-track {
-  background: #f5f3ee;
-}
-::-webkit-scrollbar-thumb {
-  background: #a3b599;
-  border-radius: 3px;
-}
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: #F5F3EE; }
+::-webkit-scrollbar-thumb { background: #BCB5AC; border-radius: 3px; }
 
 /* ── Base body ── */
 body {
-  background-color: #f5f3ee;
-  color: #2c2c2c;
-  font-family: var(--font-inter), system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  background-color:         #F5F3EE;
+  color:                    #282A28;
+  font-family:              var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing:   antialiased;
+  -moz-osx-font-smoothing:  grayscale;
+  overflow-x:               hidden;
 }
 
-/* ── Section label utility ── */
+/* ── Section label utility (e.g. "SERVICIOS", "CONTACTO") ── */
 .section-label {
-  font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: 0.6875rem;
-  font-weight: 500;
+  font-family:    var(--font-inter), system-ui, sans-serif;
+  font-size:      0.6875rem;
+  font-weight:    500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
 }
@@ -66,12 +92,8 @@ body {
 /* ── Scroll bounce animation ── */
 @keyframes scrollBounce {
   0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(8px);
-  }
+  100% { transform: translateY(0); }
+  50%  { transform: translateY(8px); }
 }
 .animate-scroll-bounce {
   animation: scrollBounce 2s ease-in-out infinite;
@@ -83,9 +105,9 @@ body {
     animation: none;
   }
   * {
-    animation-duration: 0.01ms !important;
+    animation-duration:       0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration:      0.01ms !important;
   }
 }
 
@@ -96,10 +118,10 @@ body {
 
 /* ── Cinematic image fill ── */
 .fill-frame {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  position:       absolute;
+  inset:          0;
+  width:          100%;
+  height:         100%;
+  object-fit:     cover;
+  object-position:center;
 }

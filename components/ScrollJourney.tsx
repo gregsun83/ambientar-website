@@ -62,7 +62,7 @@ function Chapter({ eyebrow, text, opacity, isLast, whatsappLabel, consultLabel }
     >
       {/* Eyebrow */}
       <p
-        className="font-sans text-sage-light/90 tracking-[0.35em] uppercase mb-5"
+        className="font-sans text-sage/80 tracking-[0.35em] uppercase mb-5"
         style={{ fontSize: "clamp(0.6rem, 1.2vw, 0.7rem)" }}
       >
         {eyebrow}
@@ -317,13 +317,13 @@ export function ScrollJourney() {
         />
         {/* eslint-enable @next/next/no-img-element */}
 
-        {/* Cinematic overlay gradient */}
+        {/* Cinematic overlay gradient — charcoal-tinted for brand warmth */}
         <motion.div
           aria-hidden="true"
           style={{ opacity: overlayOpacity }}
           className="absolute inset-0 pointer-events-none"
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-forest-dark/60 via-forest-dark/20 to-forest-dark/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-charcoal/65 via-charcoal/20 to-charcoal/70" />
         </motion.div>
 
         {/* Grain texture overlay for cinematic feel */}

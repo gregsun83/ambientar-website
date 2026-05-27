@@ -4,22 +4,22 @@ import { useLanguage } from "@/context/LanguageContext";
 import { content } from "@/lib/i18n";
 
 const WHATSAPP_NUMBER = "50766029004";
-const CURRENT_YEAR = new Date().getFullYear();
+const CURRENT_YEAR   = new Date().getFullYear();
 
 export function Footer() {
-  const { lang } = useLanguage();
-  const t = content.footer[lang];
-  const contactT = content.contact[lang];
-  const navT = content.nav[lang];
+  const { lang }   = useLanguage();
+  const t          = content.footer[lang];
+  const contactT   = content.contact[lang];
+  const navT       = content.nav[lang];
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   const NAV_LINKS = [
-    { label: navT.services, id: "services" },
+    { label: navT.services,   id: "services" },
     { label: navT.philosophy, id: "philosophy" },
-    { label: navT.contact, id: "contact" },
+    { label: navT.contact,    id: "contact" },
   ];
 
   return (
@@ -31,9 +31,10 @@ export function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-2">
+            {/* AMBIENTAR wordmark — Balgin (Comfortaa fallback) */}
             <button
               onClick={() => scrollTo("journey")}
-              className="font-serif text-2xl tracking-[0.25em] uppercase mb-4 text-offwhite hover:text-sage-light transition-colors duration-300 block"
+              className="font-balgin text-xl tracking-[0.3em] uppercase mb-4 text-offwhite hover:text-sage transition-colors duration-300 block"
               aria-label={lang === "es" ? "Volver al inicio" : "Back to top"}
             >
               AMBIENTAR
@@ -56,7 +57,7 @@ export function Footer() {
                 <li key={link.id}>
                   <button
                     onClick={() => scrollTo(link.id)}
-                    className="text-offwhite/55 hover:text-offwhite text-sm font-sans transition-colors duration-200 cursor-pointer"
+                    className="text-offwhite/50 hover:text-sage text-sm font-sans transition-colors duration-200 cursor-pointer"
                   >
                     {link.label}
                   </button>
@@ -74,7 +75,7 @@ export function Footer() {
               <li>
                 <a
                   href={`tel:${WHATSAPP_NUMBER}`}
-                  className="text-offwhite/55 hover:text-offwhite text-sm font-sans transition-colors"
+                  className="text-offwhite/50 hover:text-offwhite text-sm font-sans transition-colors"
                 >
                   {contactT.phone}
                 </a>
@@ -82,7 +83,7 @@ export function Footer() {
               <li>
                 <a
                   href="mailto:ambientar.pty@gmail.com"
-                  className="text-offwhite/55 hover:text-offwhite text-sm font-sans transition-colors break-all"
+                  className="text-offwhite/50 hover:text-offwhite text-sm font-sans transition-colors break-all"
                 >
                   {contactT.email}
                 </a>
@@ -92,7 +93,7 @@ export function Footer() {
                   href={`https://wa.me/${WHATSAPP_NUMBER}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-offwhite/55 hover:text-[#25D366] text-sm font-sans transition-colors"
+                  className="text-offwhite/50 hover:text-[#25D366] text-sm font-sans transition-colors"
                 >
                   WhatsApp
                 </a>
@@ -102,13 +103,13 @@ export function Footer() {
                   href="https://www.linkedin.com/in/cecilia-raquel-tejada-del-rosario-6956363b/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-offwhite/55 hover:text-offwhite text-sm font-sans transition-colors"
+                  className="text-offwhite/50 hover:text-sage text-sm font-sans transition-colors"
                 >
                   LinkedIn
                 </a>
               </li>
               <li>
-                <span className="text-offwhite/30 text-xs font-sans">
+                <span className="text-offwhite/25 text-xs font-sans">
                   {t.location}
                 </span>
               </li>
@@ -117,7 +118,7 @@ export function Footer() {
         </div>
 
         {/* Bottom row */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-offwhite/30 font-sans text-xs">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-offwhite/25 font-sans text-xs">
           <p>&copy; {CURRENT_YEAR} {t.copyright}</p>
           <p>
             {lang === "es"

@@ -11,9 +11,9 @@ import { useLanguage } from "@/context/LanguageContext";
 import { content } from "@/lib/i18n";
 
 export function Philosophy() {
-  const { lang } = useLanguage();
-  const t = content.philosophy[lang];
-  const reduced = useReducedMotion();
+  const { lang }   = useLanguage();
+  const t          = content.philosophy[lang];
+  const reduced    = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -28,10 +28,10 @@ export function Philosophy() {
   );
 
   const anim = (delay = 0) => ({
-    initial: { opacity: 0, y: reduced ? 0 : 24 },
+    initial:     { opacity: 0, y: reduced ? 0 : 24 },
     whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: "-80px" } as const,
-    transition: {
+    viewport:    { once: true, margin: "-80px" } as const,
+    transition:  {
       duration: 0.8,
       delay,
       ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
@@ -45,7 +45,7 @@ export function Philosophy() {
       className="relative py-28 lg:py-44 px-6 overflow-hidden"
       style={{
         background:
-          "linear-gradient(160deg, #1C2419 0%, #243024 55%, #1A1E1A 100%)",
+          "linear-gradient(160deg, #1A1E1A 0%, #282A28 55%, #1A1E1A 100%)",
       }}
     >
       {/* Parallax architectural grid */}
@@ -55,49 +55,41 @@ export function Philosophy() {
         className="absolute inset-0 pointer-events-none"
       >
         <svg
-          className="absolute inset-0 w-full h-full opacity-[0.035]"
+          className="absolute inset-0 w-full h-full opacity-[0.03]"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
         >
           <defs>
             <pattern
               id="philosophy-grid"
-              x="0"
-              y="0"
-              width="80"
-              height="80"
+              x="0" y="0" width="80" height="80"
               patternUnits="userSpaceOnUse"
             >
-              <path
-                d="M80 0H0V80"
-                fill="none"
-                stroke="white"
-                strokeWidth="0.5"
-              />
-              <circle cx="0" cy="0" r="1.5" fill="white" opacity="0.6" />
+              <path d="M80 0H0V80" fill="none" stroke="white" strokeWidth="0.5" />
+              <circle cx="0" cy="0" r="1.5" fill="white" opacity="0.5" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#philosophy-grid)" />
         </svg>
       </motion.div>
 
-      {/* Radial glow */}
+      {/* Radial olive glow */}
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(90,110,70,0.10) 0%, transparent 70%)",
+            "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(105,132,83,0.08) 0%, transparent 70%)",
         }}
       />
 
-      {/* AMBIENTAR watermark */}
+      {/* AMBIENTAR watermark — uses Balgin (Comfortaa fallback) */}
       <div
         aria-hidden="true"
         className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden"
       >
         <span
-          className="font-serif text-white/[0.03] font-bold tracking-[0.5em] uppercase select-none whitespace-nowrap"
+          className="font-balgin text-white/[0.025] font-bold tracking-[0.5em] uppercase select-none whitespace-nowrap"
           style={{ fontSize: "clamp(3rem, 12vw, 10rem)" }}
         >
           AMBIENTAR
@@ -108,10 +100,7 @@ export function Philosophy() {
 
         {/* ── Section label + heading ── */}
         <div className="text-center mb-20 lg:mb-28">
-          <motion.p
-            {...anim()}
-            className="section-label text-sage/70 mb-6"
-          >
+          <motion.p {...anim()} className="section-label text-sage/70 mb-6">
             {t.sectionLabel}
           </motion.p>
 
@@ -141,35 +130,36 @@ export function Philosophy() {
         {/* ── Manifesto quote ── */}
         <motion.p
           {...anim(0.2)}
-          className="text-offwhite/70 font-sans leading-loose text-center max-w-3xl mx-auto mb-20 lg:mb-28"
+          className="text-offwhite/65 font-sans leading-loose text-center max-w-3xl mx-auto mb-20 lg:mb-28"
           style={{ fontSize: "clamp(1rem, 1.6vw, 1.2rem)" }}
         >
           {t.manifesto}
         </motion.p>
 
         {/* ── Three pillars ── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-offwhite/10 rounded-2xl overflow-hidden mb-20 lg:mb-28">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-warmGray/10 rounded-3xl overflow-hidden mb-20 lg:mb-28">
           {t.pillars.map((pillar, i) => (
             <motion.div
               key={pillar.label}
               {...anim(0.1 + i * 0.1)}
-              className="bg-forest-dark/60 backdrop-blur-sm px-8 py-10 lg:px-10 lg:py-12 flex flex-col gap-4"
+              className="bg-charcoal/50 backdrop-blur-sm px-8 py-10 lg:px-10 lg:py-12 flex flex-col gap-4"
             >
               <div className="flex items-center gap-3" aria-hidden="true">
-                <span className="h-px w-8 bg-sage/60" />
+                <span className="h-px w-8 bg-sage/50" />
                 <span
-                  className="font-sans text-sage/70 tracking-[0.25em] uppercase"
+                  className="font-sans text-sage/60 tracking-[0.25em] uppercase"
                   style={{ fontSize: "0.6rem" }}
                 >
                   0{i + 1}
                 </span>
               </div>
-              <h3 className="font-serif text-offwhite font-medium leading-snug"
+              <h3
+                className="font-serif text-offwhite font-medium leading-snug"
                 style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.4rem)" }}
               >
                 {pillar.label}
               </h3>
-              <p className="text-offwhite/55 font-sans text-sm leading-relaxed">
+              <p className="text-offwhite/50 font-sans text-sm leading-relaxed">
                 {pillar.body}
               </p>
             </motion.div>
@@ -180,12 +170,12 @@ export function Philosophy() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 mb-20 lg:mb-28">
           {[
             { label: t.missionLabel, text: t.mission },
-            { label: t.visionLabel, text: t.vision },
+            { label: t.visionLabel,  text: t.vision },
           ].map(({ label, text }, i) => (
             <motion.div key={label} {...anim(0.2 + i * 0.1)}>
-              <p className="section-label text-sage/60 mb-4">{label}</p>
+              <p className="section-label text-sage/55 mb-4">{label}</p>
               <p
-                className="font-serif text-offwhite/80 font-light leading-relaxed"
+                className="font-serif text-offwhite/75 font-light leading-relaxed"
                 style={{ fontSize: "clamp(1rem, 1.5vw, 1.15rem)" }}
               >
                 {text}

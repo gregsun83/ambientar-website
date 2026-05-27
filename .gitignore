@@ -41,5 +41,10 @@ pictures for scroll/
 9c077d2b-4e99-4cf9-ac32-ec4a3f915ff3.png
 cfc56dbd-83b3-4c95-a200-58a0019f8e4c.png
 
+# WhatsApp source images in root (clean copies are in public/assets/brand/)
+WhatsApp Image*.jpeg
+
 # Source briefs / planning docs
 AMBIENTAR_WEBSITE_SOURCE_BRIEF.md
+
+.vercel
