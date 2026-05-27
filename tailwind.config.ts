@@ -32,8 +32,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        // Balgin for AMBIENTAR wordmark only; falls back to Comfortaa
-        balgin:  ["Balgin", "var(--font-comfortaa)", "Comfortaa", "system-ui", "sans-serif"],
+        // Balgin Display for AMBIENTAR wordmark only; falls back to Comfortaa
+        balgin:  ["Balgin Display", "var(--font-comfortaa)", "Comfortaa", "system-ui", "sans-serif"],
         // Comfortaa for subtitles / display text
         display: ["var(--font-comfortaa)", "Comfortaa", "system-ui", "sans-serif"],
         // Cormorant Garamond for editorial serif body / headings

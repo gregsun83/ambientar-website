@@ -8,19 +8,16 @@
           warmGray #BCB5AC · lightGray #D9D9D9
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* ── Balgin font — WORDMARK USE ONLY ─────────────────────────────────────────
-   TODO: Balgin font file not present in project.
-   To activate the real Balgin typeface:
-   1. Obtain a licensed Balgin font file (e.g. Balgin-Regular.woff2).
-   2. Place it in: public/fonts/balgin/Balgin.woff2
-   3. Uncomment the `src: url(...)` line below and remove the local() line.
-   Until then, Comfortaa (loaded via next/font/google) is the active fallback.
+/* ── Balgin Display — WORDMARK USE ONLY ──────────────────────────────────────
+   File: public/fonts/Fontspring-DEMO-balgindisplay-medium.otf
+   Applied exclusively to the AMBIENTAR wordmark in Header and Footer.
+   Comfortaa remains the fallback for environments where the font fails to load.
    ─────────────────────────────────────────────────────────────────────────── */
 @font-face {
-  font-family: "Balgin";
-  /* src: url('/fonts/balgin/Balgin.woff2') format('woff2'); */
-  src: local("Balgin");        /* graceful fail → CSS fallback chain */
-  font-weight: 100 900;
+  font-family: "Balgin Display";
+  src: url("/fonts/Fontspring-DEMO-balgindisplay-medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
   font-display: swap;
 }
 
