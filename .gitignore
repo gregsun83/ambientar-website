@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# Next.js build output
+/.next/
+/out/
+
+# Production build
+/build
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local env files
+.env*.local
+.env
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Large binary files not part of the web project
+*.pdf
+pictures for scroll/
+
+# Loose reference images in root (not in /public)
+23eab536-7fb9-4a00-b995-12b97af71657.png
+2bb4247c-33cc-4dee-a1ae-30abb312b919.png
+69a012db-c5c2-431f-ba4d-9141a8a2015e.png
+9c077d2b-4e99-4cf9-ac32-ec4a3f915ff3.png
+cfc56dbd-83b3-4c95-a200-58a0019f8e4c.png
+
+# Source briefs / planning docs
+AMBIENTAR_WEBSITE_SOURCE_BRIEF.md
